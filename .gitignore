@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+
+# Raw source materials (large PDFs etc.) - NEVER commit to git
+raw/
+
+# Build outputs
+frontend/dist/
+frontend/public/data/*.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/
+*.swp
+
+# Logs
+*.log
+npm-debug.log*
