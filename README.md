@@ -23,6 +23,7 @@ law-agent-workspace/
 ├── frontend/           # React + Vite 前端展示（3个页面）
 ├── scripts/            # Markdown → JSON 数据构建脚本
 ├── README.md
+├── USAGE.md            # 使用指南（新人入门讲解）
 └── agent.md            # AI 工作规范
 ```
 
@@ -52,6 +53,10 @@ node scripts/build-data.js
 - `raw/` 用于存放待整理的原始资料（PDF 讲义、真题等），**不纳入 git**（见 .gitignore）
 - AI 整理后，提炼总结写入 `knowledge/` 对应部门法目录，原始文件保留在 `raw/` 备查
 - 也可直接在对话中提供资料，由 AI 直接整理入库
+
+## 使用指南（新人入门）
+
+新同学/使用者入门，请先读 [USAGE.md](USAGE.md)——覆盖知识库是什么、三种使用方法、结构速览、快速启动与常见问题，AI 也可随时对照讲解。
 
 ## 知识库维护规范
 
