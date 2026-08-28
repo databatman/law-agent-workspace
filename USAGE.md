@@ -79,8 +79,27 @@ law-agent-workspace/
 
 ## 四、快速启动（前端）
 
+### 环境要求
+- **Node.js**：建议 `>= 18`（Vite 5 需要）；用 `node -v` 查看版本，低于 18 请升级
+- **npm**：随 Node 自带；用 `npm -v` 查看
+
+### 依赖清单（首次安装）
+前端依赖在 `frontend/package.json` 中声明，装依赖会自动一并安装。可对照下表：
+
+| 依赖 | 版本 | 用途 | 类别 |
+|------|------|------|------|
+| react | ^18.3.1 | 前端框架核心 | dependencies |
+| react-dom | ^18.3.1 | React DOM 渲染 | dependencies |
+| marked | ^14.1.2 | Markdown → HTML 渲染 | dependencies |
+| dompurify | ^3.1.6 | 渲染内容 XSS 防护 | dependencies |
+| vite | ^5.4.8 | 开发/构建服务器 | devDependencies |
+| @vitejs/plugin-react | ^4.3.1 | Vite 的 React 插件 | devDependencies |
+
+> 数据构建脚本 `scripts/build-data.js` 是**纯 Node 实现、无任何外部依赖**，只需环境里有 Node 即可直接运行，无需额外安装。
+
+### 启动步骤
 ```bash
-# 1. 安装依赖（首次）
+# 1. 安装依赖（首次，或依赖变更后）
 cd frontend
 npm install
 
@@ -99,6 +118,9 @@ node scripts/build-data.js    # 在项目根目录执行
 
 **Q1：前端打开了但内容空白？**
 先确认已在项目根目录跑过 `node scripts/build-data.js`，并确认 `frontend/public/data/*.json` 已生成。
+
+**Q0：`npm install` 报错或版本不匹配？**
+先核对 `node -v` 是否 `>= 18`（Vite 5 需要）；确认在 `frontend/` 目录下执行；可尝试删除 `node_modules/` 后重新 `npm install`。如仍失败，把报错信息发我排查。
 
 **Q2：raw 里的资料会上传到 git 吗？**
 不会。`raw/` 已在 `.gitignore` 中排除，用于存放大体积原始 PDF，避免仓库膨胀。
